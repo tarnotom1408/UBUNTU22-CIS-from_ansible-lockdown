@@ -1,0 +1,6 @@
+- name: "1.1.1.1 | PATCH | Ensure mounting of cramfs filesystems is disabled | Edit modprobe config"
+  ansible.builtin.lineinfile:
+          dest: /etc/modprobe.d/cramfs.conf
+          regexp: '^(#)?install cramfs(\\s|$)'
+          line: install cramfs /bin/true
+          create: true
